@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
         body: SafeArea(
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 CircleAvatar(
                   radius: 50.0,
@@ -29,74 +30,59 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'FLUTTER DEVELOPER',
+                  'FLUTTER NOOB',
                   style: TextStyle(
-                      fontSize: 18.0,
+                      fontSize: 20.0,
                       color: Colors.white70,
                       fontFamily: 'SourceSans',
                       letterSpacing: 2.5,
                       fontWeight: FontWeight.w600),
                 ),
-                Container(
-                  //width: 200.0,
+                SizedBox(
+                  height: 20.0,
+                  width: 250.0,
+                  child: Divider(
+                    color: Colors.teal.shade300,
+                  ),
+                ),
+                Card(
                   margin: EdgeInsets.symmetric(
                     vertical: 10.0,
                     horizontal: 30.0,
                   ),
-                  padding: EdgeInsets.symmetric(
-                    vertical: 8.0,
-                    horizontal: 15.0,
-                  ),
-                  color: Colors.white,
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.call,
-                        color: Colors.teal[900],
-                        size: 25.0,
-                      ),
-                      SizedBox(
-                        width: 25.0,
-                      ),
-                      Text(
-                        '+92 332 3674487',
-                        style: TextStyle(
-                            fontFamily: 'SourceSans',
-                            color: Colors.teal[900],
-                            fontSize: 18.0),
-                      )
-                    ],
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.call,
+                      color: Colors.teal[900],
+                      size: 25.0,
+                    ),
+                    title: Text(
+                      '+92 332 3674487',
+                      style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          color: Colors.teal[900],
+                          fontSize: 18.0),
+                    ),
                   ),
                 ),
-                Container(
-                  //width: 200.0,
+                Card(
                   margin: EdgeInsets.symmetric(
                     vertical: 0,
                     horizontal: 30.0,
                   ),
-                  padding: EdgeInsets.symmetric(
-                    vertical: 8.0,
-                    horizontal: 15.0,
-                  ),
-                  color: Colors.white,
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.email,
-                        color: Colors.teal[900],
-                        size: 25.0,
-                      ),
-                      SizedBox(
-                        width: 25.0,
-                      ),
-                      Text(
-                        'rasheedaabbas@gmail.com',
-                        style: TextStyle(
-                            fontFamily: 'SourceSans',
-                            color: Colors.teal[900],
-                            fontSize: 18.0),
-                      )
-                    ],
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.email,
+                      color: Colors.teal[900],
+                      size: 25.0,
+                    ),
+                    title: Text(
+                      'rasheedaabbas@gmail.com',
+                      style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          color: Colors.teal[900],
+                          fontSize: 18.0),
+                    ),
                   ),
                 ),
               ],
