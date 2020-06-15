@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
                 ),
                 Card(
                   margin: EdgeInsets.symmetric(
-                    vertical: 10.0,
+                    vertical: 5.0,
                     horizontal: 30.0,
                   ),
                   child: ListTile(
@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
                 ),
                 Card(
                   margin: EdgeInsets.symmetric(
-                    vertical: 0,
+                    vertical: 5.0,
                     horizontal: 30.0,
                   ),
                   child: ListTile(
@@ -78,6 +78,24 @@ class MyApp extends StatelessWidget {
                     ),
                     title: Text(
                       'rasheedaabbas@gmail.com',
+                      style: TextStyle(
+                          fontFamily: 'SourceSans',
+                          color: Colors.teal[900],
+                          fontSize: 18.0),
+                    ),
+                  ),
+                ),
+                Card(
+                  margin: EdgeInsets.symmetric(
+                    vertical: 5.0,
+                    horizontal: 30.0,
+                  ),
+                  child: ListTile(
+                    leading: Image(
+                      image: AssetImage('images/linkedin.png'),
+                    ),
+                    title: Text(
+                      'https://www.linkedin.com/in/rasheeda-abbas/',
                       style: TextStyle(
                           fontFamily: 'SourceSans',
                           color: Colors.teal[900],
