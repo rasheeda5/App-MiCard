@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
@@ -45,61 +46,58 @@ class MyApp extends StatelessWidget {
                     color: Colors.teal.shade300,
                   ),
                 ),
-                Card(
-                  margin: EdgeInsets.symmetric(
-                    vertical: 5.0,
-                    horizontal: 30.0,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.call,
-                      color: Colors.teal[900],
-                      size: 25.0,
-                    ),
-                    title: Text(
-                      '+92 332 3674487',
-                      style: TextStyle(
-                          fontFamily: 'SourceSans',
-                          color: Colors.teal[900],
-                          fontSize: 18.0),
-                    ),
-                  ),
-                ),
-                Card(
-                  margin: EdgeInsets.symmetric(
-                    vertical: 5.0,
-                    horizontal: 30.0,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.email,
-                      color: Colors.teal[900],
-                      size: 25.0,
-                    ),
-                    title: Text(
-                      'rasheedaabbas@gmail.com',
-                      style: TextStyle(
-                          fontFamily: 'SourceSans',
-                          color: Colors.teal[900],
-                          fontSize: 18.0),
+                FlatButton(
+                  onPressed: _launchCall,
+                  child: Card(
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.call,
+                        color: Colors.teal[900],
+                        size: 25.0,
+                      ),
+                      title: Text(
+                        '+92 332 3674487',
+                        style: TextStyle(
+                            fontFamily: 'SourceSans',
+                            color: Colors.teal[900],
+                            fontSize: 18.0),
+                      ),
                     ),
                   ),
                 ),
-                Card(
-                  margin: EdgeInsets.symmetric(
-                    vertical: 5.0,
-                    horizontal: 30.0,
-                  ),
-                  child: ListTile(
-                    leading: Image(
-                      image: AssetImage('images/linkedin.png'),
+                FlatButton(
+                  onPressed: _launchMail,
+                  child: Card(
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.email,
+                        color: Colors.teal[900],
+                        size: 25.0,
+                      ),
+                      title: Text(
+                        'rasheedaabbas@gmail.com',
+                        style: TextStyle(
+                            fontFamily: 'SourceSans',
+                            color: Colors.teal[900],
+                            fontSize: 18.0),
+                      ),
                     ),
-                    title: Text(
-                      'https://www.linkedin.com/in/rasheeda-abbas/',
-                      style: TextStyle(
-                          fontFamily: 'SourceSans',
-                          color: Colors.teal[900],
-                          fontSize: 18.0),
+                  ),
+                ),
+                FlatButton(
+                  onPressed: _launchURL,
+                  child: Card(
+                    child: ListTile(
+                      leading: Image(
+                        image: AssetImage('images/linkedin.png'),
+                      ),
+                      title: Text(
+                        'https://www.linkedin.com/in/rasheeda-abbas/',
+                        style: TextStyle(
+                            fontFamily: 'SourceSans',
+                            color: Colors.teal[900],
+                            fontSize: 18.0),
+                      ),
                     ),
                   ),
                 ),
@@ -109,5 +107,32 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+_launchURL() async {
+  const url = 'https://www.linkedin.com/in/rasheeda-abbas/';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchMail() async {
+  const url = 'mailto:rasheedaabbas@gmail.com?subject=&body=';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_launchCall() async {
+  const url = 'tel:+923323674487';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
